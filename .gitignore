@@ -1,0 +1,13 @@
+.idea
+*.log
+.DS_Store
+.tmp
+*.swp
+*.swo
+node_modules/
+bower_component/
+.editorconfig
+
+/coverage
+.yarnrc
+package-lock.json

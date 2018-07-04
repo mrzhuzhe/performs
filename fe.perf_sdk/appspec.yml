@@ -1,0 +1,8 @@
+appid: fe.perf_sdk
+version: 1.0.0
+os: linux
+language: cdnjs
+apptype: web
+hooks:
+ AfterInstall:
+   - location: sh install.sh

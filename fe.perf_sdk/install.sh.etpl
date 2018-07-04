@@ -1,0 +1,8 @@
+# Refresh CDN cache
+if [ -x /data/fe.static/bin/static.js ]; then
+  /data/fe.static/bin/static.js flushcdn $(
+    (
+      find dist -name '*.js' | sed 's/^dist/https:\/\/perf.elemecdn.com/';
+    ) | sort | uniq
+  )
+fi

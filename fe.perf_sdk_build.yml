@@ -1,0 +1,10 @@
+language: fe.yarn
+version: 0.24.7
+script:
+  - make
+  - cp -r dist fe.perf_sdk
+outfile:
+  - ./fe.perf_sdk
+branch:
+  master: alpha_stable
+build_imageid: docker.elenet.me/huijian.lu/yarn:0.24.7

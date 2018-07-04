@@ -1,0 +1,73 @@
+{
+  "name": "perf-js",
+  "version": "1.2.1",
+  "description": "js sdk for ",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "make",
+    "lint": "eslint src/",
+    "eslint": "eslint src/",
+    "dist": "rollup -c",
+    "test": "karma start",
+    "postinstall": "node scripts/warn.js"
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "external-helpers"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "sdk",
+    "perf"
+  ],
+  "author": "folk by sofish 's perf'",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.1.18",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-runtime": "^6.23.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.10.1",
+    "eslint-config-elemefe": "^0.1.1",
+    "eslint-module-utils": "^2.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-vue": "^1.0.0",
+    "fceptor": "^0.2.11",
+    "karma": "^1.3.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chai": "^0.1.0",
+    "karma-commonjs": "^1.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-sinon": "^1.0.5",
+    "koa": "^1.2.4",
+    "koa-cors": "^0.0.16",
+    "koa-router": "^5.4.0",
+    "mocha": "^3.1.2",
+    "phantomjs-prebuilt": "^2.1.13",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "shelljs": "^0.7.7",
+    "sinon": "^1.17.6",
+    "xceptor": "^0.3.2"
+  },
+  "dependencies": {}
+}

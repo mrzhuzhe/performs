@@ -1,0 +1,22 @@
+{
+  "name": "perf-js",
+  "description": "js sdk for https://perf.ele.me",
+  "main": "dist/perf.min.js",
+  "authors": [
+    "sofish <happinesz@gmail.com> (http://sofi.sh/)"
+  ],
+  "license": "ELE.ME only",
+  "keywords": [
+    "sdk",
+    "perf"
+  ],
+  "homepage": "https://github.com/eleme/perf-js",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

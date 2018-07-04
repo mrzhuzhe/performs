@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Perf-JS test</title>
+  <style>
+    body{padding:1em 10px;}
+    button{padding:10px 20px;background:#08c;border:none;color:#fff;box-shadow:0 2px 0 #06c;border-radius:3px;}
+    input{border:none;background:#eee;padding:5px 20px;min-height:36px;box-shadow:inset 1px 1px 0 #ddd;display:block;min-width:310px;}
+    pre{font-size:12px;background:#f8f8f8;padding:1em 20px;}
+    hr{border-top:1px dashed #aaa;color:transparent;height:0;overflow:hidden;margin:1em 0;}
+  </style>
+</head>
+<body>
+
+<p>Track a route: <button perf-click="perf-js/test" perf-route="3-1">step-1</button>
+<button perf-click="perf-js/test" perf-route="3-2">step-2</button>
+<button perf-click="perf-js/test" perf-route="3-3">step-3</button></p>
+
+<input perf-change="perf-js/test"
+       perf-data='{"foo":"bar","hello":["w","o","r","l","d"]}'
+       placeholder="send event when value changed">
+
+<pre></pre>
+
+<script>
+  var pre = document.querySelector('pre');
+  window.PERF_DEBUG = function(message) {
+    var origin = pre.innerHTML;
+    if(origin) origin = '<hr>' + origin;
+    pre.innerHTML = '<b>Event sent:</b>\n' + JSON.stringify(message, null, 2) + origin;
+  };
+</script>
+<script src="../perf.js"></script>
+<script>
+   setTimeout(function(){
+     throw('perf string error in settimeout');
+   }, 0);
+   setTimeout(function(){
+     varTest1 = undefinedv1;
+   }, 0);
+   setInterval(function(){
+     varTest2 = undefinedv2;
+   }, 1000);
+  setInterval('console.log("1")', 1000);
+  throw Error('error example by perf');
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+
+dist/* -diff
+
+yarn.lock -diff
+
+test/ export-ignore
+docs/ export-ignore
+example/ export-ignore
+coverage/ export-ignore
+yarn.lock export-ignore
+karma.conf.js export-ignore
