@@ -29,7 +29,7 @@ var sendMessage = function(type, message) {
   } else {
     var domain = window.ElemePerfConfigs.trackerDomain;
     var img = new Image();
-    img.src = `${domain}/_.gif?${serialize(information)}&time=${Date.now()}`;
+    img.src = `${domain}/event.gif?${serialize(information)}&time=${Date.now()}`;
   }
 
   return this;
