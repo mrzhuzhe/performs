@@ -23,14 +23,14 @@ var sendMessage = function(type, message) {
     d: message
   };
 
-  if (typeof w.PERF_DEBUG === 'function') {
+  //  if (typeof w.PERF_DEBUG === 'function') {
     // for debug
     w.PERF_DEBUG(information);
-  } else {
+  //  } else {
     var domain = window.ElemePerfConfigs.trackerDomain;
     var img = new Image();
     img.src = `${domain}/event.gif?${serialize(information)}&time=${Date.now()}`;
-  }
+  //  }
 
   return this;
 };
@@ -95,14 +95,14 @@ export function sendRawEvent(type, message) {
     d: message
   };
 
-  if (typeof w.PERF_DEBUG === 'function') {
+  //  if (typeof w.PERF_DEBUG === 'function') {
     // for debug
     w.PERF_DEBUG(information);
-  } else {
+  //  } else {
     var domain = window.ElemePerfConfigs.trackerDomain;
     var img = new Image();
-    img.src = `${domain}/_.gif?${serialize(information)}&time=${Date.now()}`;
-  }
+    img.src = `${domain}/event.gif?${serialize(information)}&time=${Date.now()}`;
+  //  }
 
   return this;
 }
