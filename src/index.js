@@ -69,14 +69,14 @@ if (document.addEventListener != null) {
     if (featureConfigs.api) watchApis();
     digestConfigs(featureConfigs);
   } else {
-    loadConfigs((error, godConfiguredTypes) => {
-      var currentTypes = error == null ? godConfiguredTypes : featureConfigs;
+    //  loadConfigs((error, godConfiguredTypes) => {
+      var currentTypes = /* error == null ? godConfiguredTypes :*/ featureConfigs;
       // API's tracking is special, by default it's false
       // decide after God configs loaded, otherwise there is side-effects
       if (currentTypes.api) watchApis();
       // adjust module state of send
       digestConfigs(currentTypes);
-    });
+    //  });
   }
 
   // actually create ssid in Cookies

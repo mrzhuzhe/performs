@@ -1,5 +1,5 @@
 export var defaultConfigs = {
-  trackerDomain: 'https://perf.ele.me',
+  trackerDomain: 'http://t.imaisu.com/api',
   sdkVer: '1.2.1',
   appVer: '0.0.0',
   appName: location.hostname,
