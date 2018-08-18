@@ -7,11 +7,11 @@ function eventHandler(e) {
   var ev = e.type;
   var raw = {};
   var message = {
-    id: this.getAttribute('perf-id'),
+    e_id: this.getAttribute('perf-id'),
     name: this.getAttribute(`perf-${ev}`),
     event: ev
   };
-  if (!message.id) {
+  if (!message.e_id) {
     if (w.PERF_DEBUG) throw new Error(ERROR.id(ev));
     return console.log(ERROR.id(ev));
   }
