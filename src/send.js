@@ -26,11 +26,11 @@ var sendMessage = function(type, message) {
   if (typeof w.PERF_DEBUG === 'function') {
     // for debug
     w.PERF_DEBUG(information);
-  } else {
+  } //  else {
     var domain = window.ElemePerfConfigs.trackerDomain;
     var img = new Image();
     img.src = `${domain}/event.gif?${serialize(information)}&time=${Date.now()}`;
-  }
+  //}
 
   return this;
 };
@@ -98,11 +98,11 @@ export function sendRawEvent(type, message) {
   if (typeof w.PERF_DEBUG === 'function') {
     // for debug
     w.PERF_DEBUG(information);
-  } else {
+  } //  else {
     var domain = window.ElemePerfConfigs.trackerDomain;
     var img = new Image();
     img.src = `${domain}/event.gif?${serialize(information)}&time=${Date.now()}`;
-  }
+  //  }
 
   return this;
 }

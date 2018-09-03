@@ -1,5 +1,5 @@
 export var defaultConfigs = {
-  trackerDomain: 'http://t.imaisu.com/api',
+  trackerDomain: 'http://ubt.imaisu.com:8080/api',
   sdkVer: '1.2.1',
   appVer: '0.0.0',
   appName: location.hostname,
