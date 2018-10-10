@@ -19,7 +19,7 @@ export function loadConfigs(cb) {
 
 export function isEventEnabled(type, message) {
   // console.log('Detecting:', type, message);
-  var sending = window.ElemePerfConfigs.sendingTypes;
+  var sending = window.perfConfigs.sendingTypes;
   switch (type) {
     case 'load':
       return sending.load;

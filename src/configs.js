@@ -13,7 +13,7 @@ export var defaultConfigs = {
     error: true,
     event: true,
     asset: false,
-    http: true,
+    //  http: true,
 
     // disabled by default
     api: false

@@ -22,6 +22,16 @@ export function watchLoad() {
       let [end, start] = item[1];
       detail[item[0]] = w.performance.timing[end] - w.performance.timing[start];
     });
+
+    // parse Url paramenter then assgin to detail
+    var _pareseSearchQuery = (location) => {
+      var res = {};
+      location.search.replace(/([^?&#]+)=([^?&#]+)/g, function(r, key, value) {
+        res[key] = value;
+      })
+      return res
+    }
+    detail = Object.assign(detail, _pareseSearchQuery(window.location));
     return detail;
   }
 

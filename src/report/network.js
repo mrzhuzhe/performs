@@ -207,7 +207,7 @@ export function watchAssets() {
 }
 
 export function watchApis() {
-  var etraceApiFilter = window.ElemePerfConfigs.etraceApiFilter;
+  var etraceApiFilter = window.perfConfigs.etraceApiFilter;
 
   // add interceptor in XMLHttpRequest
   xceptor.when(/^/, etraceApiFilter, prepareXHR, checkXhrResponse);

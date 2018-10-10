@@ -9,17 +9,19 @@ var stateQueue = [];
 var sendMessage = function(type, message) {
   // events can be disabled by category from God, see util/site-configs.js
   if (!isEventEnabled(type, message)) return;
-
   var information = {
-    id: w.location.href,
-    sdkVer: window.ElemePerfConfigs.sdkVer,
-    appVer: window.ElemePerfConfigs.appVer,
-    appName: window.ElemePerfConfigs.appName,
-    pageName: window.ElemePerfConfigs.pageName,
-    source: window.ElemePerfConfigs.source,
-    ssid: window.ElemePerfConfigs.ssid,
+    id: window.perfConfigs.id,
+    url: w.location.href,
+    sdkVer: window.perfConfigs.sdkVer,
+    appVer: window.perfConfigs.appVer,
+    appName: window.perfConfigs.appName,
+    pageName: window.perfConfigs.pageName,
+    source: window.perfConfigs.source,
+    ssid: window.perfConfigs.ssid,
     type: type,
     network: guessConnection(),
+    referer: document.referrer,
+    userAgent: window.navigator.userAgent,
     d: message
   };
 
@@ -27,7 +29,7 @@ var sendMessage = function(type, message) {
     // for debug
     w.PERF_DEBUG(information);
   } //  else {
-    var domain = window.ElemePerfConfigs.trackerDomain;
+    var domain = window.perfConfigs.trackerDomain;
     var img = new Image();
     img.src = `${domain}/event.gif?${serialize(information)}&time=${Date.now()}`;
   //}
@@ -46,7 +48,7 @@ export function send(type, message) {
 export function digestConfigs(realTimeConfigs) {
   stateLoadedConfigs = true;
   if (realTimeConfigs != null) {
-    window.ElemePerfConfigs.sendingTypes = realTimeConfigs;
+    window.perfConfigs.sendingTypes = realTimeConfigs;
   }
   stateQueue.forEach(function(pair) {
     sendMessage.apply(null, pair);
@@ -84,12 +86,12 @@ export function sendEvent(message) {
 export function sendRawEvent(type, message) {
   var information = {
     id: w.location.href,
-    sdkVer: window.ElemePerfConfigs.sdkVer,
-    appVer: window.ElemePerfConfigs.appVer,
-    appName: window.ElemePerfConfigs.appName,
-    pageName: window.ElemePerfConfigs.pageName,
-    source: window.ElemePerfConfigs.source,
-    ssid: window.ElemePerfConfigs.ssid,
+    sdkVer: window.perfConfigs.sdkVer,
+    appVer: window.perfConfigs.appVer,
+    appName: window.perfConfigs.appName,
+    pageName: window.perfConfigs.pageName,
+    source: window.perfConfigs.source,
+    ssid: window.perfConfigs.ssid,
     type: type,
     network: guessConnection(),
     d: message
@@ -99,7 +101,7 @@ export function sendRawEvent(type, message) {
     // for debug
     w.PERF_DEBUG(information);
   } //  else {
-    var domain = window.ElemePerfConfigs.trackerDomain;
+    var domain = window.perfConfigs.trackerDomain;
     var img = new Image();
     img.src = `${domain}/event.gif?${serialize(information)}&time=${Date.now()}`;
   //  }

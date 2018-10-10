@@ -20,33 +20,33 @@ import { loadSsid } from './util/ssid';
 
 
 // make sure the global configs is defined
-if (!window.ElemePerfConfigs) {
-  window.ElemePerfConfigs = {};
+if (!window.perfConfigs) {
+  window.perfConfigs = {};
 }
 
 var fillInDefaultConfigs = function() {
   for (var k in defaultConfigs) {
-    if (!window.ElemePerfConfigs[k]) {
-      window.ElemePerfConfigs[k] = defaultConfigs[k];
+    if (!window.perfConfigs[k]) {
+      window.perfConfigs[k] = defaultConfigs[k];
     }
   }
   if (
-    window.ElemePerfConfigs.source !== 'web' &&
-    window.ElemePerfConfigs.source !== 'web-sw'
+    window.perfConfigs.source !== 'web' &&
+    window.perfConfigs.source !== 'web-sw'
   ) {
     console.warn('[PERF] `source` field should be `web` or `web-sw`');
-    window.ElemePerfConfigs.source = 'web';
+    window.perfConfigs.source = 'web';
   }
 };
 
 if (document.addEventListener != null) {
-  var isTypesConfigured = window.ElemePerfConfigs.sendingTypes != null;
+  var isTypesConfigured = window.perfConfigs.sendingTypes != null;
 
   fillInDefaultConfigs();
   // expose for access
   window.perf = { send, sendEvent, sendRawEvent };
 
-  var featureConfigs = window.ElemePerfConfigs.sendingTypes;
+  var featureConfigs = window.perfConfigs.sendingTypes;
 
   if (featureConfigs.error) watchErrors();
   if (featureConfigs.load) watchLoad();
@@ -59,7 +59,7 @@ if (document.addEventListener != null) {
   // adding delay to make sure polyfills and scripts loaded
   setTimeout(function() {
     // by default ensureVariables is [], means checking nothing
-    checkVariables(window.ElemePerfConfigs.ensureVariables);
+    checkVariables(window.perfConfigs.ensureVariables);
   }, 1000);
 
   // priorities: 1. use developer's configs,
@@ -80,5 +80,5 @@ if (document.addEventListener != null) {
   }
 
   // actually create ssid in Cookies
-  window.ElemePerfConfigs.ssid = loadSsid();
+  window.perfConfigs.ssid = loadSsid();
 }
