@@ -12,11 +12,11 @@ var sendMessage = function(type, message) {
   var information = {
     id: window.perfConfigs.id,
     url: w.location.href,
-    sdkVer: window.perfConfigs.sdkVer,
+    //sdkVer: window.perfConfigs.sdkVer,
     appVer: window.perfConfigs.appVer,
     appName: window.perfConfigs.appName,
     pageName: window.perfConfigs.pageName,
-    source: window.perfConfigs.source,
+    //source: window.perfConfigs.source,
     ssid: window.perfConfigs.ssid,
     type: type,
     network: guessConnection(),
