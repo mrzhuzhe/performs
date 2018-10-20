@@ -1,5 +1,7 @@
 import { serialize, type, guessConnection } from './util';
 import { isEventEnabled } from './util/site-configs';
+import { browserName } from './util/browserName';
+import { OSName  } from './util/OSName';
 
 var w = window;
 
@@ -22,6 +24,8 @@ var sendMessage = function(type, message) {
     network: guessConnection(),
     referer: document.referrer,
     userAgent: window.navigator.userAgent,
+    browserName, 
+    OSName,
     d: message
   };
 
