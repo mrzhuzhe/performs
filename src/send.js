@@ -61,8 +61,8 @@ export function digestConfigs(realTimeConfigs) {
 }
 
 export function sendEvent(message) {
-  if (message.id == null) {
-    console.error('Custom event: `id` is required');
+  if (message.e_id == null) {
+    console.error('Custom event: `e_id` is required');
   }
   if (message.name == null) {
     console.error('Custom event: `name` is required');
